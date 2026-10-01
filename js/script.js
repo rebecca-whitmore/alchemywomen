@@ -47,3 +47,23 @@ if (backToTopButton) {
     window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
   });
 }
+
+const cardSearch = document.querySelector('[data-card-search]');
+
+if (cardSearch) {
+  const cards = [...document.querySelectorAll('.library-card')];
+  const resultCount = document.querySelector('[data-result-count]');
+  const emptyState = document.querySelector('.library-empty');
+
+  cardSearch.addEventListener('input', () => {
+    const query = cardSearch.value.trim().toLowerCase();
+    let visible = 0;
+    cards.forEach((card) => {
+      const matches = !query || card.dataset.card.includes(query);
+      card.hidden = !matches;
+      if (matches) visible += 1;
+    });
+    if (resultCount) resultCount.textContent = visible;
+    if (emptyState) emptyState.hidden = visible !== 0;
+  });
+}

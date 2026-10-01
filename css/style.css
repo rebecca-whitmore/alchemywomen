@@ -216,13 +216,22 @@ button:focus-visible {
   line-height: 0.88;
 }
 
-.card-intro {
+.card-intro,
+.quick-meaning p:first-child {
   max-width: 41rem;
   margin: 1.6rem 0 0.7rem;
   color: var(--colour-plum);
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 2.5vw, 2rem);
   line-height: 1.2;
+}
+
+.quick-meaning p:first-child strong {
+  font-weight: 500;
+}
+
+.quick-meaning p:last-child {
+  max-width: 41rem;
 }
 
 .card-hero__copy > p:last-of-type {
@@ -441,7 +450,8 @@ button:focus-visible {
 }
 
 .card-pagination {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   width: min(70rem, calc(100% - (2 * var(--page-gutter))));
   margin: 0 auto var(--section-spacing);
   align-items: center;
@@ -449,6 +459,17 @@ button:focus-visible {
   gap: 2rem;
   border-top: 1px solid var(--border-soft);
   padding-top: 2rem;
+}
+
+.card-pagination > a:first-child {
+  display: grid;
+  text-decoration: none;
+}
+
+.card-pagination > a:first-child span {
+  color: var(--colour-muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
 }
 
 .card-pagination a {
@@ -530,6 +551,134 @@ button:focus-visible {
   font-size: 0.8rem;
 }
 
+.library-hero {
+  width: min(54rem, calc(100% - (2 * var(--page-gutter))));
+  margin: clamp(3rem, 7vw, 6rem) auto clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+}
+
+.library-hero h1 {
+  margin: 0 0 1rem;
+  color: var(--colour-plum);
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 0.95;
+}
+
+.library-hero > p:not(.eyebrow, .search-status) {
+  max-width: 44rem;
+  margin-inline: auto;
+  font-size: 1.08rem;
+}
+
+.card-search {
+  display: grid;
+  max-width: 35rem;
+  margin: 2.2rem auto 0;
+  text-align: left;
+}
+
+.card-search span {
+  margin-bottom: 0.45rem;
+  color: var(--colour-plum);
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+
+.card-search input {
+  width: 100%;
+  min-height: 3.25rem;
+  padding: 0.75rem 1rem;
+  color: var(--colour-text);
+  background: var(--colour-white);
+  border: 2px solid rgba(123, 94, 167, 0.38);
+  border-radius: var(--radius-small);
+}
+
+.search-status {
+  margin: 0.6rem 0 0;
+  color: var(--colour-muted);
+  font-size: 0.82rem;
+}
+
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(var(--content-width), calc(100% - (2 * var(--page-gutter))));
+  margin: 0 auto var(--section-spacing);
+  gap: clamp(1.2rem, 3vw, 2rem);
+}
+
+.library-card[hidden] {
+  display: none;
+}
+
+.library-card a {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  color: var(--colour-plum);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-large);
+  text-decoration: none;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.library-card a:hover,
+.library-card a:focus-visible {
+  transform: translateY(-0.35rem);
+  box-shadow: 0 1.25rem 2.8rem rgba(43, 27, 61, 0.18);
+}
+
+.library-card img {
+  width: 100%;
+  aspect-ratio: 300 / 527;
+  object-fit: cover;
+}
+
+.library-card__copy {
+  padding: 1.1rem 1.2rem 1.35rem;
+}
+
+.library-card__copy p {
+  margin: 0;
+  color: var(--colour-purple);
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.library-card__copy h2 {
+  margin: 0.25rem 0 0.45rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.library-card__copy span {
+  color: var(--colour-muted);
+  font-size: 0.78rem;
+}
+
+.library-empty {
+  width: min(35rem, calc(100% - (2 * var(--page-gutter))));
+  margin: 0 auto var(--section-spacing);
+  padding: 2rem;
+  text-align: center;
+  background: rgba(217, 204, 235, 0.35);
+  border-radius: var(--radius-large);
+}
+
+.library-notice {
+  width: min(54rem, calc(100% - (2 * var(--page-gutter))));
+  margin-inline: auto;
+}
+
 @media (max-width: 52rem) {
   .menu-toggle {
     display: inline-grid;
@@ -584,6 +733,10 @@ button:focus-visible {
   .site-footer__inner {
     grid-template-columns: 1fr;
   }
+
+  .library-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 35rem) {
@@ -616,11 +769,15 @@ button:focus-visible {
 
   .card-pagination {
     align-items: flex-start;
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .card-pagination__next {
     text-align: left;
+  }
+
+  .library-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
