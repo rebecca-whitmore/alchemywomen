@@ -1,1 +1,85 @@
-/* Site-wide styles will be defined here. */
+:root {
+  /* Brand palette */
+  --colour-purple: #7b5ea7;
+  --colour-plum: #2b1b3d;
+  --colour-gold: #c9a24b;
+  --colour-cream: #f6f0e6;
+  --colour-lilac: #d9cceb;
+  --colour-blush: #e8c7c8;
+
+  /* Supporting neutrals */
+  --colour-text: #000000;
+  --colour-white: #ffffff;
+  --colour-muted: #655e69;
+
+  /* Semantic colours: change these to retheme the whole site. */
+  --colour-background: var(--colour-cream);
+  --colour-surface: var(--colour-white);
+  --colour-heading: var(--colour-plum);
+  --colour-accent: var(--colour-purple);
+  --colour-highlight: var(--colour-gold);
+
+  /* Typography placeholders; final fonts can be selected later. */
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: Arial, Helvetica, sans-serif;
+
+  /* Shared layout values */
+  --content-width: 75rem;
+  --page-gutter: clamp(1rem, 4vw, 3rem);
+  --section-spacing: clamp(3rem, 8vw, 7rem);
+  --radius-small: 0.5rem;
+  --radius-large: 1.5rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--colour-text);
+  background: var(--colour-background);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* Use as the wrapper for the logo and its decorative sparkle layer. */
+.brand-mark {
+  position: relative;
+  isolation: isolate;
+}
+
+.brand-mark__sparkles {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.brand-mark__logo {
+  position: relative;
+}
