@@ -950,6 +950,8 @@ input:focus-visible {
 }
 
 .home-intro h2 {
+  width: min(100%, 16ch);
+  margin: 0 auto 1.15rem;
   text-align: center;
 }
 
