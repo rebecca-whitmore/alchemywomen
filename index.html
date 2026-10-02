@@ -7,6 +7,7 @@
     <meta name="description" content="Tarot meanings, manifestation, mindset and a touch of magic for women who feel deeply and dream bigger.">
     <title>Alchemy Women | Tarot, Mindset &amp; Everyday Magic</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://forminit.com/sdk/v1/forminit.js" defer></script>
     <script src="js/script.js" defer></script>
   </head>
   <body class="home-page">
@@ -35,8 +36,7 @@
       </section>
 
       <section class="home-intro">
-        <p class="section-kicker">Start where you are</p>
-        <h2>Tarot without the fear or fortune-telling</h2>
+        <h2>Tarot that brings you closer to your own wisdom</h2>
         <p>Our card meanings are written to help you reflect, notice and make sense of what is already moving within you. You’ll find clear first impressions, deeper interpretations, symbolism and a question to carry into your own reading.</p>
         <a class="button button--secondary" href="/tarot/">Visit the tarot library</a>
       </section>
@@ -50,13 +50,13 @@
         </div>
       </section>
 
-      <section class="newsletter-section" aria-labelledby="newsletter-title">
-        <div class="newsletter-section__copy"><p class="section-kicker">Stay close</p><h2 id="newsletter-title">A little magic, delivered gently.</h2><p>Leave your details to hear when new Alchemy Women guides and features are ready. The sign-up connection is coming soon.</p></div>
-        <form class="newsletter-form" data-newsletter-form novalidate>
-          <div class="form-field"><label for="newsletter-name">First name</label><input id="newsletter-name" name="first_name" type="text" autocomplete="given-name" placeholder="Your first name"></div>
-          <div class="form-field"><label for="newsletter-email">Email address</label><input id="newsletter-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
+      <section class="newsletter-section sheen-card" aria-labelledby="newsletter-title">
+        <div class="newsletter-section__copy"><p class="section-kicker">Stay close</p><h2 id="newsletter-title">A little magic, delivered gently.</h2><p>Leave your details to hear when new Alchemy Women guides and features are ready.</p></div>
+        <form class="newsletter-form" data-forminit-form novalidate>
+          <div class="form-field"><label for="newsletter-name">First name</label><input id="newsletter-name" name="fi-sender-firstName" type="text" autocomplete="given-name" placeholder="Your first name" required></div>
+          <div class="form-field"><label for="newsletter-email">Email address</label><input id="newsletter-email" name="fi-sender-email" type="email" autocomplete="email" required placeholder="you@example.com"></div>
           <button class="button button--gold" type="submit">Register for updates</button>
-          <p class="form-note" data-form-message>The form is a preview for now—we’ll connect it before registrations open.</p>
+          <p class="form-note" data-form-message aria-live="polite"></p>
         </form>
       </section>
     </main>

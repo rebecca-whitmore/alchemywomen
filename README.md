@@ -34,5 +34,5 @@ Preview the site locally with `node scripts\preview-server.js`, then open either
 - `http://127.0.0.1:4173/tarot/minor-arcana/`
 - `http://127.0.0.1:4173/tarot/`
 
-The newsletter form on the homepage is currently a front-end preview. It does
-not send or store visitor details until a form service is connected.
+The updates forms on the homepage and About page submit through Forminit using
+the public form ID configured in `js/script.js`.

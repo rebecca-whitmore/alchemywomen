@@ -925,6 +925,10 @@ input:focus-visible {
   background: var(--colour-white);
 }
 
+.home-intro h2 {
+  text-align: center;
+}
+
 .home-intro > * {
   max-width: 49rem;
   margin-right: auto;
@@ -1009,6 +1013,7 @@ input:focus-visible {
 .pathway-card__link { margin-top: auto; font-weight: 750; }
 
 .newsletter-section {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(22rem, 1.15fr);
   width: min(var(--content-width), calc(100% - (2 * var(--page-gutter))));
@@ -1019,6 +1024,25 @@ input:focus-visible {
   border-radius: var(--radius-large);
   box-shadow: var(--shadow-soft);
   gap: clamp(2rem, 6vw, 5rem);
+  overflow: hidden;
+}
+
+.newsletter-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.sheen-card::after {
+  position: absolute;
+  top: -45%;
+  bottom: -45%;
+  left: -55%;
+  width: 30%;
+  content: "";
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  transform: skewX(-18deg);
+  animation: reflection-sheen 9s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .newsletter-section h2 { color: var(--colour-white); font-size: clamp(2.4rem, 5vw, 4rem); }
@@ -1030,6 +1054,10 @@ input:focus-visible {
 .form-field input { min-height: 3.1rem; padding: 0.7rem 0.9rem; color: var(--colour-text); background: var(--colour-white); border: 2px solid transparent; border-radius: var(--radius-small); font: inherit; }
 .newsletter-form .button { width: 100%; }
 .form-note { margin: 0; color: var(--colour-lilac); font-size: 0.78rem; }
+.form-note:empty { display: none; }
+.form-note.is-error { color: #f4c7cb; }
+.form-note.is-success { color: var(--colour-lilac); }
+.newsletter-form button:disabled { cursor: wait; opacity: 0.68; transform: none; }
 
 /* Tarot landing page */
 .tarot-hub-hero {
@@ -1044,6 +1072,7 @@ input:focus-visible {
 }
 
 .tarot-hub-hero h1 { max-width: 9ch; }
+.tarot-hub-hero__cta { margin-top: 2.75rem; }
 .deck-visual { position: relative; min-height: 31rem; }
 .deck-visual__sparkle { position: absolute; inset: 3% auto auto 5%; width: 95%; opacity: 0.18; }
 .deck-card { width: min(13rem, 48%); }
@@ -1101,6 +1130,14 @@ input:focus-visible {
 .coming-soon__symbol--crystal { font-size: 4rem; }
 .coming-soon h1 { margin: 0 0 1.2rem; color: var(--colour-plum); font-family: var(--font-display); font-size: clamp(3.2rem, 8vw, 6rem); font-weight: 500; letter-spacing: -0.055em; line-height: 0.94; }
 .coming-soon > p:not(.eyebrow) { max-width: 40rem; margin: 0; font-size: 1.08rem; }
+.coming-soon--with-form { padding-bottom: clamp(3rem, 7vw, 5rem); }
+.updates-form { width: min(34rem, 100%); margin-top: 2rem; padding: clamp(1.4rem, 4vw, 2rem); color: var(--colour-white); background: var(--colour-plum); border-radius: var(--radius-large); box-shadow: var(--shadow-soft); text-align: left; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sheen-card::after {
+    display: none;
+  }
+}
 
 @media (max-width: 52rem) {
   .menu-toggle {

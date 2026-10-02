@@ -73,22 +73,47 @@ if (cardSearch) {
   });
 }
 
-const newsletterForm = document.querySelector('[data-newsletter-form]');
+const forminitForms = document.querySelectorAll('[data-forminit-form]');
 
-if (newsletterForm) {
-  newsletterForm.addEventListener('submit', (event) => {
+forminitForms.forEach((form) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
-    const message = newsletterForm.querySelector('[data-form-message]');
-    const email = newsletterForm.querySelector('[type="email"]');
 
-    if (!email.checkValidity()) {
-      email.reportValidity();
+    if (!form.checkValidity()) {
+      form.reportValidity();
       return;
     }
 
-    if (message) {
-      message.textContent = 'Thanks for your interest. This preview form is not sending details yet; registration will open when the connection is ready.';
-      message.setAttribute('role', 'status');
+    const message = form.querySelector('[data-form-message]');
+    const submitButton = form.querySelector('[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+
+    message.textContent = '';
+    message.className = 'form-note';
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending…';
+
+    try {
+      if (typeof Forminit === 'undefined') {
+        throw new Error('The form service could not be loaded. Please try again.');
+      }
+
+      const forminit = new Forminit();
+      const { error } = await forminit.submit('y6dkzr5fuji', new FormData(form));
+
+      if (error) {
+        throw new Error(error.message || 'We could not register your details. Please try again.');
+      }
+
+      message.textContent = 'Thank you — you’re registered for Alchemy Women updates.';
+      message.classList.add('is-success');
+      form.reset();
+    } catch (error) {
+      message.textContent = error.message || 'Something went wrong. Please try again.';
+      message.classList.add('is-error');
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalButtonText;
     }
   });
-}
+});
