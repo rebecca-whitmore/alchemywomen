@@ -12,6 +12,8 @@ A lightweight HTML, CSS and JavaScript website.
 - `images/rider-waite-smith/` — complete 78-card tarot deck and card back
 - `content/tarot/` — editable Markdown source for tarot meanings
 - `content/site-notices.md` — reusable editorial and safety notices
+- `tarot/index.html` — main tarot landing page and route into both libraries
+- `angel-numbers/`, `crystals/` and `about/` — branded coming-soon pages
 
 Colours and other reusable design decisions are defined as custom properties at
 the top of `css/style.css` so the visual direction can be changed centrally.
@@ -30,3 +32,7 @@ Preview the site locally with `node scripts\preview-server.js`, then open either
 
 - `http://127.0.0.1:4173/tarot/major-arcana/`
 - `http://127.0.0.1:4173/tarot/minor-arcana/`
+- `http://127.0.0.1:4173/tarot/`
+
+The newsletter form on the homepage is currently a front-end preview. It does
+not send or store visitor details until a form service is connected.

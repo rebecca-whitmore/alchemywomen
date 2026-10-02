@@ -72,3 +72,23 @@ if (cardSearch) {
     if (emptyState) emptyState.hidden = visible !== 0;
   });
 }
+
+const newsletterForm = document.querySelector('[data-newsletter-form]');
+
+if (newsletterForm) {
+  newsletterForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const message = newsletterForm.querySelector('[data-form-message]');
+    const email = newsletterForm.querySelector('[type="email"]');
+
+    if (!email.checkValidity()) {
+      email.reportValidity();
+      return;
+    }
+
+    if (message) {
+      message.textContent = 'Thanks for your interest. This preview form is not sending details yet; registration will open when the connection is ready.';
+      message.setAttribute('role', 'status');
+    }
+  });
+}
