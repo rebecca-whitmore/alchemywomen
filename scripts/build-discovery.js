@@ -3,7 +3,7 @@ const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
 const domain = 'https://alchemywomen.com';
-const analyticsTag = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-QQN1SJTZME"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-QQN1SJTZME');</script>`;
+const analyticsTag = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-QQN1SJTZME"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-QQN1SJTZME');</script><link rel="icon" href="/favicon.svg" type="image/svg+xml">`;
 
 function findHtml(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {

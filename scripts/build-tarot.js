@@ -5,7 +5,8 @@ const root = path.resolve(__dirname, '..');
 const sourceDir = path.join(root, 'content', 'tarot', 'major-arcana');
 const outputDir = path.join(root, 'tarot');
 const analyticsTag = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-QQN1SJTZME"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-QQN1SJTZME');</script>`;
-const withAnalytics = (html) => html.replace('<head>', `<head>${analyticsTag}`);
+const faviconTag = '<link rel="icon" href="/favicon.svg" type="image/svg+xml">';
+const withAnalytics = (html) => html.replace('<head>', `<head>${analyticsTag}${faviconTag}`);
 
 const escapeHtml = (value = '') => value
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
