@@ -36,3 +36,6 @@ Preview the site locally with `node scripts\preview-server.js`, then open either
 
 The updates forms on the homepage and About page submit through Forminit using
 the public form ID configured in `js/script.js`.
+
+Google Analytics is enabled sitewide with measurement ID `G-QQN1SJTZME`.
+Generated tarot pages inherit the tag from `scripts/build-tarot.js`.

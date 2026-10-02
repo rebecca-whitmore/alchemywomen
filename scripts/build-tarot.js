@@ -4,6 +4,8 @@ const path = require('node:path');
 const root = path.resolve(__dirname, '..');
 const sourceDir = path.join(root, 'content', 'tarot', 'major-arcana');
 const outputDir = path.join(root, 'tarot');
+const analyticsTag = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-QQN1SJTZME"></script><script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-QQN1SJTZME');</script>`;
+const withAnalytics = (html) => html.replace('<head>', `<head>${analyticsTag}`);
 
 const escapeHtml = (value = '') => value
   .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
@@ -98,13 +100,13 @@ function page(card, index) {
 cards.forEach((card, index) => {
   const dir = path.join(outputDir, card.slug);
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, 'index.html'), page(card, index));
+  fs.writeFileSync(path.join(dir, 'index.html'), withAnalytics(page(card, index)));
 });
 
 const cardGrid = cards.map((card) => `<article class="library-card" data-card="${escapeHtml(`${card.title} ${card.upright_keywords.join(' ')} ${card.reversed_keywords.join(' ')}`.toLowerCase())}"><a href="/tarot/${card.slug}/"><img src="../../${card.image}" alt="${escapeHtml(card.title)} tarot card" width="300" height="527" loading="lazy"><div class="library-card__copy"><p>Major Arcana</p><h2>${escapeHtml(card.title)}</h2></div></a></article>`).join('\n');
 const indexHtml = `<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#2b1b3d"><meta name="description" content="Explore all 22 Major Arcana tarot cards, with original upright and reversed meanings, symbolism and reflective questions."><title>Major Arcana Tarot Card Meanings | Alchemy Women</title><link rel="stylesheet" href="../../css/style.css"><script src="../../js/script.js" defer></script></head><body class="tarot-library-page">${sharedHeader}<main id="main-content"><div class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="../../index.html">Home</a></li><li><a href="../">Tarot</a></li><li aria-current="page">Major Arcana</li></ol></div><section class="library-hero"><p class="eyebrow">The tarot library</p><h1>Major Arcana</h1><p>The 22 Major Arcana cards explore the larger themes, turning points and inner lessons that shape a human life. Begin with the card that drew you here, or browse the full journey from The Fool to The World.</p><label class="card-search"><span>Search the Major Arcana</span><input type="search" placeholder="start typing..." data-card-search></label><p class="search-status" aria-live="polite"><span data-result-count>${cards.length}</span> cards</p></section><section class="library-grid" aria-label="Major Arcana cards">${cardGrid}</section><div class="library-empty" hidden><h2>No cards found</h2><p>Try another card name or theme.</p></div></main>${sharedFooter}</body></html>`;
 fs.mkdirSync(path.join(outputDir, 'major-arcana'), { recursive: true });
-fs.writeFileSync(path.join(outputDir, 'major-arcana', 'index.html'), indexHtml);
+fs.writeFileSync(path.join(outputDir, 'major-arcana', 'index.html'), withAnalytics(indexHtml));
 console.log(`Built ${cards.length} card pages and the Major Arcana index.`);
 
 const minorSourceDir = path.join(root, 'content', 'tarot', 'minor-arcana');
@@ -148,7 +150,7 @@ function minorPage(card, suit, index) {
 minorSuits.forEach((suit) => suit.cards.forEach((card, index) => {
   const dir = path.join(outputDir, card.slug);
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, 'index.html'), minorPage(card, suit, index));
+  fs.writeFileSync(path.join(dir, 'index.html'), withAnalytics(minorPage(card, suit, index)));
 }));
 
 const suitJumpLinks = minorSuits.map((suit) => `<a href="#${suit.slug}">${suit.name}</a>`).join('');
@@ -159,5 +161,5 @@ const minorSections = minorSuits.map((suit) => {
 
 const minorIndexHtml = `<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#2b1b3d"><meta name="description" content="Explore all 56 Minor Arcana tarot cards across Cups, Pentacles, Swords and Wands, with original upright and reversed meanings."><title>Minor Arcana Tarot Card Meanings | Alchemy Women</title><link rel="stylesheet" href="../../css/style.css"><script src="../../js/script.js" defer></script></head><body class="tarot-library-page minor-arcana-page">${sharedHeader}<main id="main-content"><div class="breadcrumbs"><ol><li><a href="/">Home</a></li><li><a href="/tarot/">Tarot</a></li><li aria-current="page">Minor Arcana</li></ol></div><section class="library-hero" id="minor-arcana-top"><p class="eyebrow">The tarot library</p><h1>Minor Arcana</h1><p>The 56 Minor Arcana cards bring tarot into the texture of everyday life: your feelings, choices, responsibilities, relationships and creative energy. Browse by suit or search for the card that brought you here.</p><nav class="suit-jump-links" aria-label="Jump to a suit">${suitJumpLinks}</nav><label class="card-search"><span>Search the Minor Arcana</span><input type="search" placeholder="start typing..." data-card-search></label><p class="search-status" aria-live="polite"><span data-result-count>56</span> cards</p></section>${minorSections}<div class="library-empty" hidden><h2>No cards found</h2><p>Try another card name, suit or theme.</p></div></main>${sharedFooter}</body></html>`;
 fs.mkdirSync(path.join(outputDir, 'minor-arcana'), { recursive: true });
-fs.writeFileSync(path.join(outputDir, 'minor-arcana', 'index.html'), minorIndexHtml);
+fs.writeFileSync(path.join(outputDir, 'minor-arcana', 'index.html'), withAnalytics(minorIndexHtml));
 console.log('Built 56 card pages and the Minor Arcana index.');
