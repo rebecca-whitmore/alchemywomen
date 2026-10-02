@@ -18,13 +18,15 @@ the top of `css/style.css` so the visual direction can be changed centrally.
 
 ## Building the tarot library
 
-The Markdown files in `content/tarot/major-arcana/` are the source of truth for
-the Major Arcana library. After editing them, regenerate the listing and card
-pages with:
+The Markdown files in `content/tarot/major-arcana/` and
+`content/tarot/minor-arcana/` are the source of truth for both tarot libraries.
+After editing them, regenerate the listings and dedicated card pages with:
 
 ```powershell
 node scripts\build-tarot.js
 ```
 
-Preview the site locally with `node scripts\preview-server.js`, then open
-`http://127.0.0.1:4173/tarot/major-arcana/`.
+Preview the site locally with `node scripts\preview-server.js`, then open either:
+
+- `http://127.0.0.1:4173/tarot/major-arcana/`
+- `http://127.0.0.1:4173/tarot/minor-arcana/`

@@ -660,6 +660,93 @@ button:focus-visible {
   line-height: 1.05;
 }
 
+.library-card__copy h3 {
+  margin: 0.25rem 0 0.45rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.suit-jump-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  margin: 2rem auto 0;
+}
+
+.suit-jump-links a {
+  padding: 0.62rem 1rem;
+  color: var(--colour-plum);
+  font-size: 0.86rem;
+  font-weight: 750;
+  background: rgba(217, 204, 235, 0.42);
+  border: 1px solid rgba(123, 94, 167, 0.32);
+  border-radius: 999px;
+  text-decoration: none;
+}
+
+.suit-jump-links a:hover,
+.suit-jump-links a:focus-visible {
+  color: var(--colour-white);
+  background: var(--colour-purple);
+}
+
+.minor-suit {
+  scroll-margin-top: 2rem;
+  margin-bottom: clamp(4.5rem, 9vw, 8rem);
+}
+
+.minor-suit__heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: min(var(--content-width), calc(100% - (2 * var(--page-gutter))));
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  gap: 2rem;
+}
+
+.minor-suit__heading > div {
+  max-width: 48rem;
+}
+
+.minor-suit__heading h2 {
+  margin: 0 0 0.8rem;
+  color: var(--colour-plum);
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.minor-suit__heading p:last-child {
+  margin-bottom: 0;
+  font-size: 1.02rem;
+}
+
+.suit-back-to-top {
+  flex: 0 0 auto;
+  margin-top: 1.7rem;
+  padding: 0.45rem 0.7rem;
+  color: var(--colour-purple);
+  font-size: 0.78rem;
+  font-weight: 750;
+  border-bottom: 1px solid rgba(123, 94, 167, 0.42);
+  text-decoration: none;
+}
+
+.suit-back-to-top:hover,
+.suit-back-to-top:focus-visible {
+  color: var(--colour-plum);
+  border-color: var(--colour-gold);
+}
+
+.minor-suit .library-grid {
+  margin-bottom: 0;
+}
+
 .library-card__copy span {
   color: var(--colour-muted);
   font-size: 0.78rem;
@@ -778,6 +865,15 @@ button:focus-visible {
 
   .library-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .minor-suit__heading {
+    display: block;
+  }
+
+  .suit-back-to-top {
+    display: inline-block;
+    margin-top: 1rem;
   }
 }
 

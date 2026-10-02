@@ -63,6 +63,11 @@ if (cardSearch) {
       card.hidden = !matches;
       if (matches) visible += 1;
     });
+    document.querySelectorAll('.minor-suit').forEach((suit) => {
+      const hasVisibleCards = [...suit.querySelectorAll('.library-card')]
+        .some((card) => !card.hidden);
+      suit.hidden = !hasVisibleCards;
+    });
     if (resultCount) resultCount.textContent = visible;
     if (emptyState) emptyState.hidden = visible !== 0;
   });
