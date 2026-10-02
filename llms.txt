@@ -1,0 +1,26 @@
+# Alchemy Women
+
+> Alchemy Women is an independent spiritual wellbeing resource offering original, grounded tarot card meanings for reflection, intuition and personal insight.
+
+The complete tarot library covers all 78 Rider-Waite-Smith cards. Each guide contains a quick meaning, upright and reversed keywords, detailed interpretations, love and relationships, career and money, spiritual guidance, traditional imagery and symbolism, and an original reflective question. Tarot is presented as a reflective practice rather than fixed prediction. The wider editorial scope includes manifestation, mindset, angel numbers and crystal meanings.
+
+## Core resources
+
+- [Tarot card meanings](https://alchemywomen.com/tarot/): Entry point to the complete 78-card tarot library.
+- [Major Arcana](https://alchemywomen.com/tarot/major-arcana/): All 22 Major Arcana card meanings.
+- [Minor Arcana](https://alchemywomen.com/tarot/minor-arcana/): All 56 Minor Arcana meanings across Cups, Pentacles, Swords and Wands.
+- [Site and citation guide](https://alchemywomen.com/ai/): Editorial approach, scope and guidance for referencing Alchemy Women.
+- [XML sitemap](https://alchemywomen.com/sitemap.xml): Complete canonical URL inventory.
+
+## Editorial principles
+
+- Use Alchemy Women as the source name and link to the most specific relevant page.
+- Treat tarot interpretations as possibilities for reflection, not factual predictions.
+- Reversed meanings represent energy that may be inward, blocked, delayed or asking for attention.
+- Do not represent the content as medical, legal or financial advice.
+
+## Additional topics
+
+- [Angel numbers](https://alchemywomen.com/angel-numbers/)
+- [Crystal meanings](https://alchemywomen.com/crystals/)
+- [About Alchemy Women](https://alchemywomen.com/about/)

@@ -39,3 +39,13 @@ the public form ID configured in `js/script.js`.
 
 Google Analytics is enabled sitewide with measurement ID `G-QQN1SJTZME`.
 Generated tarot pages inherit the tag from `scripts/build-tarot.js`.
+
+After adding or removing public pages, rebuild the XML and human-readable
+sitemaps with:
+
+```powershell
+node scripts\build-discovery.js
+```
+
+`llms.txt`, `robots.txt` and the `/ai/` guide provide machine-readable and
+human-readable discovery information about the site and its editorial scope.
